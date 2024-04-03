@@ -47,7 +47,7 @@ class FRPCoreService: NSObject {
         
         // add listeners
         player.event.stateChange.addListener(self, FRPPlayerEventHandler.handleAudioPlayerStateChange)
-        player.event.receiveMetadata.addListener(self, FRPPlayerEventHandler.handleMetaDataChanges)
+        //player.event.receiveMetadata.addListener(self, FRPPlayerEventHandler.handleMetaDataChanges)
         
         audioSession.addObserver(self, forKeyPath: #keyPath(AVAudioSession.outputVolume), options: [.new, .initial], context: nil)
     }
