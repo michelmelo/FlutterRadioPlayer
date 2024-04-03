@@ -55,6 +55,21 @@ class FRPPlayerEventHandler: NSObject {
             FRPCoreService.shared.playbackStatus = FRPPlaybackStatus.PAUSED
             FRPNotificationUtil.shared.publish(eventData: FRPPlayerEvent(playbackStatus: FRPConsts.FRP_PAUSED))
             break
+        case .stopped:
+            FRPCoreService.shared.playbackStatus = FRPPlaybackStatus.STOPPED
+            FRPNotificationUtil.shared.publish(eventData: FRPPlayerEvent(playbackStatus: FRPConsts.FRP_STOPPED))
+            print("FRP stopped..")
+            break
+        case .failed:
+            FRPCoreService.shared.playbackStatus = FRPPlaybackStatus.STOPPED
+            FRPNotificationUtil.shared.publish(eventData: FRPPlayerEvent(playbackStatus: FRPConsts.FRP_STOPPED))
+            print("FRP failed..")
+            break
+        case .ended:
+            FRPCoreService.shared.playbackStatus = FRPPlaybackStatus.STOPPED
+            FRPNotificationUtil.shared.publish(eventData: FRPPlayerEvent(playbackStatus: FRPConsts.FRP_STOPPED))
+            print("FRP ended..")
+            break        
         }
     }
 }
